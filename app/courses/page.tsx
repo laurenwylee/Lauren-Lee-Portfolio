@@ -16,15 +16,17 @@ export default function Courses() {
                 <CourseDropDown courseName="CPSC 365: Algorithms" />
                 <CourseDropDown courseName="CPSC 381: Introduction to Machine Learning" courseLanguages={["Python", "NumPy", "scikit-learn", "Matplotlib"]} courseProjects={[]}/>
                 <CourseDropDown courseName="CPSC 411: Building Game Engines" courseLanguages={["D"]} courseProjects={[]}/>
+                <CourseDropDown courseName="CPSC 523: Design and Implementation of Operating Systems" courseLanguages={["C"]} courseProjects={[]}/>
+                <CourseDropDown courseName="CPSC 424: Parallel Programming Techniques" courseLanguages={["C++", "OpenMP", "ParlayLib"]} courseProjects={[]}/>
             </div>
         <h2 className="font-bold mt-4 mb-2 text-2xl">Misc</h2>
 
         <h2 className="font-bold mt-4 mb-2 text-2xl">High School</h2>
         <ul className="ml-6 space-y-2">
-            <CourseDropDown courseName="Software Development" />
-            <CourseDropDown courseName="CyberSecurity" />
-            <CourseDropDown courseName="AP Computer Science A" />
-            <CourseDropDown courseName="Journalism" />
+            <CourseDropDown courseName="Software Development" courseLanguages={["Python", "Git", "HTML", "CSS", "JavaScript"]}/>
+            <CourseDropDown courseName="CyberSecurity" courseLanguages={["Python", "Bash", "SQL", "Kali Linux", "Nmap", "Wireshark"]}/>
+            <CourseDropDown courseName="AP Computer Science A" courseLanguages={["Java"]}/>
+            {/* <CourseDropDown courseName="Journalism" /> */}
         </ul>
       </div>
   );
