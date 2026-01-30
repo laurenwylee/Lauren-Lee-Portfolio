@@ -8,10 +8,10 @@ export default function Header() {
                     </a>
                     
                     <div className="flex gap-6 text-sm font-medium">
-                        <a href="/about" className="hover:text-blue-600 transition">Courses</a>
-                        <a href="/about" className="hover:text-blue-600 transition">Experience</a>
+                        <a href="/courses" className="hover:text-blue-600 transition">Courses</a>
+                        <a href="/experience" className="hover:text-blue-600 transition">Experience</a>
                         <a href="/projects" className="hover:text-blue-600 transition">Projects</a>
-                        <a href="/contact" className="hover:text-blue-600 transition">Contact</a>
+                        {/* <a href="/contact" className="hover:text-blue-600 transition">Contact</a> */}
                     </div>
                 </div>
             </nav>
