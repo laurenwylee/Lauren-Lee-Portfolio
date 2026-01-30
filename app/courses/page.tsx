@@ -19,7 +19,6 @@ export default function Courses() {
                 <CourseDropDown courseName="CPSC 523: Design and Implementation of Operating Systems" courseLanguages={["C"]} courseProjects={[]}/>
                 <CourseDropDown courseName="CPSC 424: Parallel Programming Techniques" courseLanguages={["C++", "OpenMP", "ParlayLib"]} courseProjects={[]}/>
             </div>
-        <h2 className="font-bold mt-4 mb-2 text-2xl">Misc</h2>
 
         <h2 className="font-bold mt-4 mb-2 text-2xl">High School</h2>
         <ul className="ml-6 space-y-2">
