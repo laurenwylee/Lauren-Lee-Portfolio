@@ -1,4 +1,12 @@
 import ProjectComponent from "@/components/ProjectComponent";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Software projects by Lauren Lee, including SuiteEase, YaleClubs, DeepLearn, and systems programming coursework like CertiKOS and a custom OCaml compiler.",
+};
+
 export default function Projects()
 {
     return (

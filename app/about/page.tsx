@@ -1,6 +1,13 @@
 import Image from "next/image";
 import { Linkedin, Github, FileText } from "lucide-react";
 import IconLink from "@/components/IconLink";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Lauren Lee is a BS/MS Computer Science student at Yale University, software engineer, and founder of Bridging Seas, a nonprofit connecting high school students across 12 countries.",
+};
 
 export default function About() {
   return (

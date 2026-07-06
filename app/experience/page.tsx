@@ -1,4 +1,12 @@
 import ExperienceComponent from "@/components/ExperienceComponent";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Experience",
+  description:
+    "Lauren Lee's professional experience, including software engineering internships at Dow Jones and machine learning research at HKUST.",
+};
+
 export default function Experience() {
   return (
     <div className="flex flex-col h-full">

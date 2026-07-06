@@ -1,5 +1,12 @@
 import CourseDropDown from "@/components/CourseDropDown";
 import type { Project } from "next/dist/build/swc/types";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Courses",
+  description:
+    "Computer science and math coursework taken by Lauren Lee at Yale University and Stuyvesant High School.",
+};
 
 export default function Courses() {
   return (
