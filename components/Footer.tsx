@@ -6,7 +6,7 @@ export default function Footer() {
           href="/Lauren_Lee_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-white transition"
+          className="hover:text-green-600 transition"
         >
           Resume
         </a>
@@ -14,7 +14,7 @@ export default function Footer() {
           href="https://github.com/laurenwylee"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-white transition"
+          className="hover:text-green-600 transition"
         >
           GitHub
         </a>
@@ -23,14 +23,14 @@ export default function Footer() {
           href="https://www.linkedin.com/in/laurenwylee/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-white transition"
+          className="hover:text-green-600 transition"
         >
           LinkedIn
         </a>
 
         <a
           href="mailto:laurenwyl@gmail.com"
-          className="hover:text-white transition"
+          className="hover:text-green-600 transition"
         >
           Email
         </a>

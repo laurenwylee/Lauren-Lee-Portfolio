@@ -23,13 +23,22 @@ export default function TerminalText({children} : TerminalTextProps)
     const [activeLine, setActiveLine] = useState(0);
 
     const options = [
-    { key: "A", label: "Courses", path: "/courses" },
-    { key: "B", label: "Experience", path: "/experience" },
-    { key: "C", label: "Projects", path: "/projects" },
-    { key: "D", label: "Bridging Seas", path: "/bridgingseas" },
-    { key: "E", label: "Journalism", path: "/journalism" },
+    { key: "A", label: "About", path: "/about" },
+    { key: "B", label: "Courses", path: "/courses" },
+    { key: "C", label: "Experience", path: "/experience" },
+    { key: "D", label: "Projects", path: "/projects" },
+    { key: "E", label: "Bridging Seas", path: "https://www.bridgingseas.com/", external: true },
     { key: "F", label: "Contact", path: "/contact" },
+    { key: "G", label: "Resume", path: "/Lauren_Lee_Resume.pdf", external: true },
     ];
+
+    const go = (path: string, external?: boolean) => {
+        if (external) {
+            window.open(path, "_blank", "noopener,noreferrer");
+        } else {
+            router.push(path);
+        }
+    };
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectionEnabled, setSelectionEnabled] = useState(false);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -64,7 +73,7 @@ export default function TerminalText({children} : TerminalTextProps)
             );
             }
             if (e.key === "Enter") {
-                router.push(options[selectedIndex].path);
+                go(options[selectedIndex].path, options[selectedIndex].external);
             }
         };
 
@@ -107,7 +116,7 @@ export default function TerminalText({children} : TerminalTextProps)
         {display.map((line, i) => {
             const isOptionLine =
             selectionEnabled && 
-            line.trim().match(/^[A-F]\./); 
+            line.trim().match(/^[A-G]\./);
 
             const optionIndex = isOptionLine
             ? options.findIndex((opt) => line.trim().startsWith(opt.key + "."))
@@ -118,12 +127,24 @@ export default function TerminalText({children} : TerminalTextProps)
             return (
             <div
                 key={i}
+                onClick={
+                    isOptionLine
+                    ? () => go(options[optionIndex].path, options[optionIndex].external)
+                    : undefined
+                }
+                onMouseEnter={
+                    isOptionLine
+                    ? () => setSelectedIndex(optionIndex)
+                    : undefined
+                }
                 className={`flex gap-2 items-start px-1 ${
+                isOptionLine ? "cursor-pointer" : ""
+                } ${
                 highlighted ? "bg-green-600/70 text-black rounded-sm" : ""
                 }`}
             >
                 <span className="text-green-500 w-4">
-                    {line.trim() !== "" ? "❯" : ""}
+                    {(selectionEnabled ? highlighted : i === activeLine) ? "❯" : ""}
                 </span>
 
                 <span className="whitespace-pre-wrap">
@@ -137,7 +158,7 @@ export default function TerminalText({children} : TerminalTextProps)
         })}
 
             {selectionEnabled || 
-                <div className="text-gray-500/50 text-sm mt-1">
+                <div className="text-gray-300/70 text-sm mt-1">
                     Press Enter to skip
                 </div>}
 

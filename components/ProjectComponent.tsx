@@ -1,5 +1,6 @@
-"use-client"
+"use client"
 
+import { useEffect, useState } from "react";
 import IconLink from "./IconLink";
 import { Github,Globe } from "lucide-react";
 
@@ -14,6 +15,13 @@ interface ProjectComponentProps{
 
 export default function ProjectComponent({projectName, projectImage, description, stack, githubLink, websiteLink}: ProjectComponentProps)
 {
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const frame = requestAnimationFrame(() => setVisible(true));
+        return () => cancelAnimationFrame(frame);
+    }, []);
+
     return (
         <div className="mb-3">
             <div>{projectImage}</div>
@@ -37,9 +45,17 @@ export default function ProjectComponent({projectName, projectImage, description
                 )}
 
             </div>
-            <div className="flex items-start gap-2 mb-1">
-                {stack.map((tool) => (
-                    <div key={tool} className="border-solid border-1 pt-0.5 pb-0.5 pl-1 pr-1 rounded">{tool}</div>
+            <div className="flex flex-wrap items-start gap-2 mb-1">
+                {stack.map((tool, i) => (
+                    <div
+                        key={tool}
+                        className={`border-solid border-1 border-green-600 pt-0.5 pb-0.5 pl-1 pr-1 rounded text-sm transition-all duration-700 ease-out ${
+                            visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                        }`}
+                        style={{ transitionDelay: `${i * 200}ms` }}
+                    >
+                        {tool}
+                    </div>
                 ))}
             </div>
             <div>{description}</div>

@@ -11,7 +11,7 @@ export default function IconLink({ href, label, children }: IconLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="inline-flex items-center justify-center text-gray-300 hover:text-white ml-3 transition"
+      className="inline-flex items-center justify-center text-gray-300 hover:text-green-600 ml-3 transition"
     >
       {children}
     </a>

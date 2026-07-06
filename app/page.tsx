@@ -6,14 +6,15 @@ export default function Home() {
       <div>
         <TerminalText>
           {`Hello, my name is Lauren
-          I am a junior at Yale pursuing a combined bachelors and masters at Yale with certificates in Chinese Language and Journalism.
-          If you'd like to learn more about me, select an option ( Use ↑ / ↓ to navigate. Press Enter to select):
-            A. Courses
-            B. Experience
-            C. Projects
-            D. Bridging Seas
-            E. Journalism
-            F. Contact`}
+          I am a junior at Yale pursuing a combined bachelors and masters at Yale with certificates in Chinese Language and Ethnography.
+          If you'd like to learn more about me, select an option ( Use mouse or ↑ / ↓ to navigate. Press Enter to select):
+            A. About
+            B. Courses
+            C. Experience
+            D. Projects
+            E. Bridging Seas
+            F. Contact
+            G. Resume`}
         </TerminalText>
       </div>
   );
