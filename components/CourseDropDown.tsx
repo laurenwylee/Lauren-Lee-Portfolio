@@ -1,8 +1,3 @@
-
-"use client"
-
-import { useEffect, useState } from "react";
-
 type Project = {
     projectName: string;
     githubLink: string;
@@ -17,19 +12,6 @@ interface CourseDropDownProps
 }
 
 export default function CourseDropDown({courseName, courseLanguages, courseProjects}: CourseDropDownProps){
-    const [visible, setVisible] = useState(false);
-
-    useEffect(() => {
-        let raf2 = 0;
-        const raf1 = requestAnimationFrame(() => {
-            raf2 = requestAnimationFrame(() => setVisible(true));
-        });
-        return () => {
-            cancelAnimationFrame(raf1);
-            cancelAnimationFrame(raf2);
-        };
-    }, []);
-
     return(
         <div>
             <div className="flex flex-wrap items-center gap-4">
@@ -37,10 +19,8 @@ export default function CourseDropDown({courseName, courseLanguages, courseProje
                 {courseLanguages && courseLanguages.map((lang, i) => (
                     <div
                         key={lang}
-                        className={`border-solid border-1 border-green-600 pt-0.5 pb-0.5 pl-1 pr-1 rounded text-sm transition-all duration-700 ease-out ${
-                            visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-                        }`}
-                        style={{ transitionDelay: `${i * 200}ms` }}
+                        className="border-solid border-1 border-green-600 pt-0.5 pb-0.5 pl-1 pr-1 rounded text-sm opacity-0"
+                        style={{ animation: `slide-in-fade 0.7s ease-out ${i * 200}ms forwards` }}
                     >
                         {lang}
                     </div>
