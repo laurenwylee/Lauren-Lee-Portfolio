@@ -17,8 +17,14 @@ export default function ExperienceComponent({experienceName, logo, role, date, d
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
-        const frame = requestAnimationFrame(() => setVisible(true));
-        return () => cancelAnimationFrame(frame);
+        let raf2 = 0;
+        const raf1 = requestAnimationFrame(() => {
+            raf2 = requestAnimationFrame(() => setVisible(true));
+        });
+        return () => {
+            cancelAnimationFrame(raf1);
+            cancelAnimationFrame(raf2);
+        };
     }, []);
 
     return (
