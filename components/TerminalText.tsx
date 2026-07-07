@@ -89,20 +89,29 @@ export default function TerminalText({children} : TerminalTextProps)
 
     const router = useRouter();
 
+    const skipToEnd = () => {
+        if (selectionEnabled) return;
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        setSelectionEnabled(true);
+        setDisplay(lines);
+        setActiveLine(lines.length - 1);
+    };
+
     useEffect(() => {
-        if (selectionEnabled) return; 
+        if (selectionEnabled) return;
 
         const handleSkip = (e: KeyboardEvent) => {
             if (e.key === "Enter") {
-                if (intervalRef.current) clearInterval(intervalRef.current);
-                setSelectionEnabled(true);
-                setDisplay(lines);
-                setActiveLine(lines.length - 1);
+                skipToEnd();
             }
         };
 
         window.addEventListener("keydown", handleSkip);
-        return () => window.removeEventListener("keydown", handleSkip);
+        window.addEventListener("click", skipToEnd);
+        return () => {
+            window.removeEventListener("keydown", handleSkip);
+            window.removeEventListener("click", skipToEnd);
+        };
     }, [selectionEnabled, lines]);
 
     useEffect(() => {
@@ -213,7 +222,7 @@ export default function TerminalText({children} : TerminalTextProps)
 
             {selectionEnabled || 
                 <div className="text-gray-300/70 text-sm mt-1">
-                    Press Enter to skip
+                    Press Enter or tap anywhere to skip
                 </div>}
 
         </div>
