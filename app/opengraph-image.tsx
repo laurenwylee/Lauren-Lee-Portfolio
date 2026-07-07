@@ -24,9 +24,9 @@ export default async function Image() {
         <div style={{ display: "flex", color: "#22c55e", fontSize: 32, marginBottom: 24 }}>
           $ whoami
         </div>
-        <div style={{ display: "flex", fontSize: 72, fontWeight: 700 }}>Lauren Lee</div>
-        <div style={{ display: "flex", fontSize: 32, marginTop: 24, color: "#ededed" }}>
-          Software Engineer & Nonprofit Founder
+        <div style={{ display: "flex", fontSize: 72, fontWeight: 700 }}>Lauren</div>
+        <div style={{ display: "flex", fontSize: 40, marginTop: 12, color: "#ededed" }}>
+          | Software Engineer & Nonprofit Founder
         </div>
         <div style={{ display: "flex", fontSize: 28, marginTop: 12, color: "#a3a3a3" }}>
           BS/MS Computer Science @ Yale University

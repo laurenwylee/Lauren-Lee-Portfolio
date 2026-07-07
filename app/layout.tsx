@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lauren Lee | Software Engineer & Nonprofit Founder",
+    title: "Lauren Lee| Software Engineer & Nonprofit Founder",
     description:
       "Lauren Lee is a BS/MS Computer Science student at Yale University, software engineer, and founder of Bridging Seas.",
   },
