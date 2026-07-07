@@ -9,16 +9,60 @@ interface TerminalTextProps
     children: ReactNode;
 }
 
+function wrapLine(line: string, maxChars: number): string[] {
+    if (line.length <= maxChars) return [line];
+
+    const words = line.split(" ");
+    const rows: string[] = [];
+    let current = "";
+
+    for (const word of words) {
+        const candidate = current ? `${current} ${word}` : word;
+        if (candidate.length > maxChars && current) {
+            rows.push(current);
+            current = word;
+        } else {
+            current = candidate;
+        }
+    }
+    if (current) rows.push(current);
+
+    return rows.length ? rows : [line];
+}
+
 export default function TerminalText({children} : TerminalTextProps)
 {
-    const raw = 
+    const raw =
         typeof children === "string"
         ? children
         : Array.isArray(children)
         ? children.join("")
         : "";
-    
-    const lines = raw.split("\n").map(line => line.trim());
+
+    const containerRef = useRef<HTMLDivElement>(null);
+    const measureRef = useRef<HTMLSpanElement>(null);
+    const [charsPerLine, setCharsPerLine] = useState<number | null>(null);
+
+    useEffect(() => {
+        const measure = () => {
+            if (!containerRef.current || !measureRef.current) return;
+            const charWidth = measureRef.current.getBoundingClientRect().width;
+            const available = containerRef.current.clientWidth - 40;
+            if (charWidth > 0 && available > 0) {
+                setCharsPerLine(Math.max(10, Math.floor(available / charWidth)));
+            }
+        };
+
+        measure();
+        const observer = new ResizeObserver(measure);
+        if (containerRef.current) observer.observe(containerRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    const lines = charsPerLine
+        ? raw.split("\n").map(line => line.trim()).flatMap(line => wrapLine(line, charsPerLine))
+        : raw.split("\n").map(line => line.trim());
+
     const [display, setDisplay] = useState([""]);
     const [activeLine, setActiveLine] = useState(0);
 
@@ -82,9 +126,15 @@ export default function TerminalText({children} : TerminalTextProps)
         }, [selectionEnabled, selectedIndex]);
 
 
+    const measured = charsPerLine !== null;
+
     useEffect(() => {
+        if (!measured) return;
+
         let lineIndex = 0;
         let charIndex = 0;
+        setDisplay([""]);
+        setActiveLine(0);
 
         intervalRef.current = setInterval(() => {
             const currLine = lines[lineIndex];
@@ -110,9 +160,13 @@ export default function TerminalText({children} : TerminalTextProps)
             }
         }, 40)
 
-    }, [raw]);
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+        };
+    }, [raw, measured]);
    return (
-        <div className="mt-5 ml-2 font-mono text-md text-white">
+        <div ref={containerRef} className="mt-5 ml-2 font-mono text-md text-white">
+        <span ref={measureRef} className="font-mono absolute opacity-0 pointer-events-none -z-10" aria-hidden="true">M</span>
         {display.map((line, i) => {
             const isOptionLine =
             selectionEnabled && 

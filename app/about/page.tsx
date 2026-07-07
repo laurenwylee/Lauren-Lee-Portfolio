@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div className="m-6 max-w-2xl mx-auto">
+    <div className="max-w-2xl mx-auto px-6 sm:px-8 py-6">
       <div className="flex flex-col items-center text-center gap-1 mb-8">
         <Image
           src="/Lauren_Lee_Headshot.jpg"

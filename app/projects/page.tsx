@@ -21,7 +21,7 @@ export default function Projects()
                 <ProjectComponent 
                     projectName="CertiKOS" 
                     projectImage="" 
-                    description="From-scratch x86 operating system kernel built for a systems programming course, based on the CertiKOS teaching kernel. It implements a custom two-stage bootloader, process/thread management, virtual memory (page tables), a Unix-like on-disk file system with buffer caching and logging, device drivers (keyboard, console, disk, timer, interrupt controllers), and a userland shell with basic Unix commands." 
+                    description="From-scratch x86 operating system kernel built for a systems programming course, based on the CertiKOS teaching kernel. It implements a custom two-stage bootloader, process/thread management, virtual memory (page tables), a Unix-like on-disk file system with buffer caching and logging, device drivers (keyboard, console, disk, timer, interrupt controllers), and a user space shell with basic Unix commands." 
                     stack={["C", "x86-64 Assembly"]} 
                     githubLink="" 
                     websiteLink=""
