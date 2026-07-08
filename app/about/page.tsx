@@ -37,7 +37,7 @@ export default function About() {
       </div>
 
       <p>
-        I'm a New York City based junior at Yale University pursuing a combined B.S./M.S. in Computer Science, along with certificates in Chinese Language and Ethnography. I've worked as a Software Engineering Intern at Dow Jones and as a Machine Learning Research Intern at HKUST, where I researched retrieval-augmented generation systems and explored techniques for reducing hallucinations and improving multi-hop reasoning in large language models.
+        I'm a New York City based junior at Yale University pursuing a combined B.S./M.S. in Computer Science, along with certificates in Chinese Language and Ethnography. I am working as a Software Engineering Intern at Dow Jones building AI powered e2e testing tools, maintaining the WSJ website, and creating Index-Design component libraries. Previously, I was a Machine Learning Research Intern at HKUST, where I researched retrieval-augmented generation systems and explored techniques for reducing hallucinations and improving multi-hop reasoning in large language models.
         <br></br> <br></br>
         I enjoy building user-focused software that solves real problems, especially at the intersection of software engineering, systems, AI, and interactive storytelling.
         <br></br> <br></br>
