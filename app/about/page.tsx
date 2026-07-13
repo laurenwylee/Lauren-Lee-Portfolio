@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Lauren Lee is a BS/MS Computer Science student at Yale University, software engineer, and founder of Bridging Seas, a nonprofit connecting high school students across 12 countries.",
+    "Lauren Lee is a BS/MS Computer Science student at Yale University, software engineer, product manager, and founder of Bridging Seas, a nonprofit connecting high school students across 12 countries.",
 };
 
 export default function About() {
@@ -37,7 +37,7 @@ export default function About() {
       </div>
 
       <p>
-        I'm a New York City based junior at Yale University pursuing a combined B.S./M.S. in Computer Science, along with certificates in Chinese Language and Ethnography. I am currently looking for Fall 2026 and Summer 2027 internship opportunities.
+        I'm a New York City based junior at Yale University pursuing a combined B.S./M.S. in Computer Science, along with certificates in Chinese Language and Ethnography. I am currently looking for Fall 2026 and Summer 2027 Software Engineering and Product Management internship opportunities.
         <br></br> <br></br>
         I am working as a Software Engineering Intern at Dow Jones building AI powered e2e testing tools, maintaining the WSJ website, and creating Index-Design system component libraries for multiple Dow Jones brands. Previously, I was a Machine Learning Research Intern at HKUST, where I researched retrieval-augmented generation systems and explored techniques for reducing hallucinations and improving multi-hop reasoning in large language models.
         <br></br> <br></br>
