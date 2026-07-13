@@ -26,7 +26,7 @@ export default function Home() {
         <div aria-hidden="true">
           <TerminalText>
             {`Hello, my name is Lauren.
-            I am a junior at Yale pursuing a combined bachelors and masters in Computer Science with certificates in Chinese Language and Ethnography.
+            I am a junior at Yale pursuing a combined bachelors and masters in Computer Science with certificates in Chinese Language and Ethnography. I am interested in Software Engineering and Product Management roles.
             If you'd like to learn more about me, select an option ( Use mouse or ↑ / ↓ to navigate. Click of press Enter to select):
               A. About
               B. Courses
