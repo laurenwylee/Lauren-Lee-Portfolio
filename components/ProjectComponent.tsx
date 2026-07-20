@@ -1,5 +1,5 @@
 import IconLink from "./IconLink";
-import { Github,Globe } from "lucide-react";
+import { Github,Globe,Video } from "lucide-react";
 
 interface ProjectComponentProps{
     projectName: string;
@@ -7,10 +7,11 @@ interface ProjectComponentProps{
     description: string;
     githubLink?: string;
     websiteLink?: string;
+    videoLink?: string;
     stack: string[];
 }
 
-export default function ProjectComponent({projectName, projectImage, description, stack, githubLink, websiteLink}: ProjectComponentProps)
+export default function ProjectComponent({projectName, projectImage, description, stack, githubLink, websiteLink, videoLink}: ProjectComponentProps)
 {
     return (
         <div className="mb-3">
@@ -31,6 +32,14 @@ export default function ProjectComponent({projectName, projectImage, description
                         label="GitHub repository"
                     >
                         <Github size={18} />
+                    </IconLink>
+                )}
+                {videoLink && (
+                    <IconLink
+                        href={videoLink}
+                        label="Video demo"
+                    >
+                        <Video size={18} />
                     </IconLink>
                 )}
 
